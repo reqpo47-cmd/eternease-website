@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternease - Business & Operations Excellence</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6B46C1',
+              lightPurple: '#8B5CF6',
+              accent: '#A855F7',
+              dark: '#1E1B4B',
+              bgLight: '#FAFAFC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .custom-shadow {
+      box-shadow: 0 10px 30px -10px rgba(107, 70, 193, 0.08);
+    }
+    .modal-active { overflow: hidden; }
+  </style>
+</head>
+<body class="bg-brand-bgLight text-slate-800 antialiased selection:bg-brand-lightPurple selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-purple-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchPage('home')">
+        <img src="images/logo.jpeg" alt="Eternease Logo" class="h-10 w-auto rounded-lg shadow-sm border border-slate-100" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Eternease+Logo';">
+        <span class="text-2xl font-extrabold tracking-tight text-slate-900">ETERNEASE</span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+        <button onclick="switchPage('home')" class="hover:text-brand-purple transition-colors">Home</button>
+        <button onclick="switchPage('services')" class="hover:text-brand-purple transition-colors">Services</button>
+        <button onclick="switchPage('team')" class="hover:text-brand-purple transition-colors">Leadership</button>
+        <button onclick="switchPage('about')" class="hover:text-brand-purple transition-colors">About Us</button>
+        <button onclick="switchPage('contact')" class="bg-gradient-to-r from-brand-purple to-brand-lightPurple text-white px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-purple-200 transition-all transform hover:-translate-y-0.5">Contact Us</button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-brand-purple focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-4">
+      <button onclick="switchPage('home'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-slate-700">Home</button>
+      <button onclick="switchPage('services'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-slate-700">Services</button>
+      <button onclick="switchPage('team'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-slate-700">Leadership</button>
+      <button onclick="switchPage('about'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-slate-700">About Us</button>
+      <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-center bg-brand-purple text-white py-3 rounded-xl font-medium">Contact Us</button>
+    </div>
+  </header>
+
+  <!-- PAGE 1: HOME -->
+  <main id="page-home" class="page-content space-y-24 py-12">
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto space-y-6">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-brand-purple text-xs font-bold uppercase tracking-wider border border-purple-100">Smart Operations & Business Excellence</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Empowering Growth with <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-accent">Precision & Technology</span>
+        </h1>
+        <p class="text-lg text-slate-600 font-normal leading-relaxed">
+          Eternease delivers high-impact operational leadership, financial governance, tech development, and specialized industry workflow solutions.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <button onclick="switchPage('services')" class="w-full sm:w-auto bg-slate-900 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-slate-800 transition-all shadow-md">Explore Our Services</button>
+          <button onclick="switchPage('team')" class="w-full sm:w-auto bg-white border border-slate-200 text-slate-700 px-8 py-3.5 rounded-xl font-semibold hover:bg-slate-50 transition-all">Meet Leadership</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Highlights Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 custom-shadow hover:border-purple-200 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-brand-purple flex items-center justify-center text-xl mb-6">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">AI & Operational Efficiency</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Advanced AI workflows, prompt engineering, content automation, and specialized process documentation.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 custom-shadow hover:border-purple-200 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-brand-purple flex items-center justify-center text-xl mb-6">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Financial & Tax Compliance</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Full-stack bookkeeping, GST/TDS filing, balance sheets, MIS reporting, and audit preparedness.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 custom-shadow hover:border-purple-200 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-brand-purple flex items-center justify-center text-xl mb-6">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Tech, Recruitment & Digital</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">US IT recruitment, web development, UI design, project management, and virtual assistance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership / Team Section on Home Page -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100 pt-16">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-extrabold text-slate-900">Leadership Team</h2>
+        <p class="text-slate-600 mt-2">Meet the domain heads steering operational, financial, and digital success.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 1. Larson Dabhi Card -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 custom-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="h-72 overflow-hidden bg-slate-100">
+            <img src="images/larson.jpeg" alt="Larson Dabhi" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Larson+Dabhi';">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900">Larson Dabhi</h3>
+              <p class="text-brand-purple font-semibold text-sm mb-4">Operational Head (Founder)</p>
+              <p class="text-slate-600 text-sm line-clamp-3 mb-6">Specializing in AI Voice Workflows, Process Management, Visual Content, Anesthesia Workstation Operations, and Critical OT Management.</p>
+            </div>
+            <button onclick="openModal('larson')" class="w-full py-2.5 px-4 bg-purple-50 text-brand-purple font-semibold rounded-xl text-sm hover:bg-brand-purple hover:text-white transition-all">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- 2. Ashish Bharthi Card -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 custom-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="h-72 overflow-hidden bg-slate-100">
+            <img src="images/ashish.jfif" alt="Ashish Bharthi" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Ashish+Bharthi';">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900">Ashish Bharthi</h3>
+              <p class="text-brand-purple font-semibold text-sm mb-4">Finance & Accounts Head</p>
+              <p class="text-slate-600 text-sm line-clamp-3 mb-6">Expert in Bookkeeping, Tally ERP, Zoho Books, GST/TDS Reconciliation, Income Tax Returns, MIS Reports, and Audit Data Preparation.</p>
+            </div>
+            <button onclick="openModal('ashish')" class="w-full py-2.5 px-4 bg-purple-50 text-brand-purple font-semibold rounded-xl text-sm hover:bg-brand-purple hover:text-white transition-all">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- 3. Vihaan Tiwari Card -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 custom-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="h-72 overflow-hidden bg-slate-100">
+            <img src="images/vihaan.png" alt="Vihaan Tiwari" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Vihaan+Tiwari';">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900">Vihaan Tiwari</h3>
+              <p class="text-brand-purple font-semibold text-sm mb-4">Head of Digital Services & IT</p>
+              <p class="text-slate-600 text-sm line-clamp-3 mb-6">Driving US IT Recruitment, Web Development, UI/UX Design, Virtual Assistance, AI Services, Marketing, and Project Support.</p>
+            </div>
+            <button onclick="openModal('vihaan')" class="w-full py-2.5 px-4 bg-purple-50 text-brand-purple font-semibold rounded-xl text-sm hover:bg-brand-purple hover:text-white transition-all">View Full Profile</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PAGE 2: SERVICES (Expandable Interactive Section) -->
+  <main id="page-services" class="page-content hidden py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-slate-900">Our Comprehensive Services</h1>
+        <p class="text-slate-600 mt-3">Explore our multi-domain expertise. Click on any section to expand details.</p>
+      </div>
+
+      <div class="space-y-6 max-w-4xl mx-auto">
+        <!-- Service Item 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden custom-shadow">
+          <button onclick="toggleAccordion('serv-1')" class="w-full p-6 text-left flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-brand-purple flex items-center justify-center font-bold">01</div>
+              <h3 class="text-lg font-bold text-slate-900">Audio, AI Workflows & Content Operations</h3>
+            </div>
+            <i id="icon-serv-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="serv-1" class="hidden p-6 border-t border-slate-100 bg-slate-50 text-slate-600 space-y-2 text-sm">
+            <p>• Audio engineering & ElevenLabs / AI voice workflows</p>
+            <p>• AI tool testing, prompt engineering & evaluation</p>
+            <p>• Scriptwriting & voice-over preparation for YouTube/Short-form content</p>
+            <p>• Christian / Ministry content development & media production</p>
+            <p>• Basic Python automation & web testing concepts</p>
+          </div>
+        </div>
+
+        <!-- Service Item 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden custom-shadow">
+          <button onclick="toggleAccordion('serv-2')" class="w-full p-6 text-left flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-brand-purple flex items-center justify-center font-bold">02</div>
+              <h3 class="text-lg font-bold text-slate-900">Financial Governance, Accounts & Taxation</h3>
+            </div>
+            <i id="icon-serv-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="serv-2" class="hidden p-6 border-t border-slate-100 bg-slate-50 text-slate-600 space-y-2 text-sm">
+            <p>• Full Bookkeeping (Tally ERP, Tally Prime, Zoho Books)</p>
+            <p>• GST Returns (GSTR-1, GSTR-3B) & GSTR-2B Reconciliation</p>
+            <p>• TDS Calculation, Returns & TRACES Notice Management</p>
+            <p>• Income Tax Return (ITR) Filing & Compliance Handling</p>
+            <p>• Financial Statements (Balance Sheet, Profit & Loss, Trial Balance)</p>
+            <p>• Advanced Excel (VLOOKUP/XLOOKUP, Pivot Tables, MIS Reports)</p>
+          </div>
+        </div>
+
+        <!-- Service Item 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden custom-shadow">
+          <button onclick="toggleAccordion('serv-3')" class="w-full p-6 text-left flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-brand-purple flex items-center justify-center font-bold">03</div>
+              <h3 class="text-lg font-bold text-slate-900">Digital Solutions, Recruitment & Virtual Support</h3>
+            </div>
+            <i id="icon-serv-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="serv-3" class="hidden p-6 border-t border-slate-100 bg-slate-50 text-slate-600 space-y-2 text-sm">
+            <p>• US IT Recruitment & Technical Interview Support</p>
+            <p>• Business Website & Portfolio Web Development</p>
+            <p>• UI Design, Graphic Design & Professional Resume Crafting</p>
+            <p>• Virtual Assistance, Email Management & Project Management</p>
+            <p>• Marketing, Advertising & Google Review Generation</p>
+          </div>
+        </div>
+
+        <!-- Service Item 4 -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden custom-shadow">
+          <button onclick="toggleAccordion('serv-4')" class="w-full p-6 text-left flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-brand-purple flex items-center justify-center font-bold">04</div>
+              <h3 class="text-lg font-bold text-slate-900">Anesthesia & Critical OT Care Leadership</h3>
+            </div>
+            <i id="icon-serv-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="serv-4" class="hidden p-6 border-t border-slate-100 bg-slate-50 text-slate-600 space-y-2 text-sm">
+            <p>• Anesthesia Workstation & Breathing System Setup and Safety</p>
+            <p>• Patient Parameter & BIS Monitoring Management</p>
+            <p>• Emergency OT Handling, Airway Management & Narcotics Protocols</p>
+            <p>• Anesthesia Department Setup, Team Guidance & OT Workflow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PAGE 3: LEADERSHIP / TEAM -->
+  <main id="page-team" class="page-content hidden py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-slate-900">Leadership Team</h1>
+        <p class="text-slate-600 mt-2">Dedicated professionals managing our key operational verticals.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Larson Dabhi -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-center flex flex-col items-center">
+          <img src="images/larson.jpeg" alt="Larson Dabhi" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-purple-100 shadow" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+          <h3 class="text-xl font-bold text-slate-900">Larson Dabhi</h3>
+          <p class="text-brand-purple font-semibold text-sm">Operational Head (Founder)</p>
+          <p class="text-slate-500 text-sm mt-3">Operations, AI Workflows, Anesthesia OT Leadership & Process Management.</p>
+          <button onclick="openModal('larson')" class="mt-auto pt-6 text-brand-purple font-bold text-sm hover:underline">View Full Profile →</button>
+        </div>
+
+        <!-- Ashish Bharthi -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-center flex flex-col items-center">
+          <img src="images/ashish.jfif" alt="Ashish Bharthi" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-purple-100 shadow" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+          <h3 class="text-xl font-bold text-slate-900">Ashish Bharthi</h3>
+          <p class="text-brand-purple font-semibold text-sm">Finance & Accounts Head</p>
+          <p class="text-slate-500 text-sm mt-3">Taxation, GST, TDS, Tally/Zoho, Financial Reports & Compliance.</p>
+          <button onclick="openModal('ashish')" class="mt-auto pt-6 text-brand-purple font-bold text-sm hover:underline">View Full Profile →</button>
+        </div>
+
+        <!-- Vihaan Tiwari -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-center flex flex-col items-center">
+          <img src="images/vihaan.png" alt="Vihaan Tiwari" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-purple-100 shadow" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+          <h3 class="text-xl font-bold text-slate-900">Vihaan Tiwari</h3>
+          <p class="text-brand-purple font-semibold text-sm">Head of Digital Services & IT</p>
+          <p class="text-slate-500 text-sm mt-3">US IT Recruitment, Web Development, UI/UX Design & Marketing.</p>
+          <button onclick="openModal('vihaan')" class="mt-auto pt-6 text-brand-purple font-bold text-sm hover:underline">View Full Profile →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PAGE 4: ABOUT US -->
+  <main id="page-about" class="page-content hidden py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center space-y-4">
+        <h1 class="text-4xl font-extrabold text-slate-900">About Eternease</h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">Providing seamless corporate operations, technological integration, and financial governance with unmatched accuracy.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 custom-shadow space-y-6 text-slate-700 leading-relaxed">
+        <h2 class="text-2xl font-bold text-slate-900">Our Mission</h2>
+        <p>At Eternease, we simplify complex business functions. From automated financial compliance to AI voice workflows, web development, and US IT recruitment, our cross-functional leadership ensures precision, reliability, and scale.</p>
+
+        <h2 class="text-2xl font-bold text-slate-900 pt-4">Why Choose Us?</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600">
+          <li><strong>Domain Leaders:</strong> Specialized leadership across Operations, Finance, and IT Services.</li>
+          <li><strong>Tech-First Execution:</strong> Leveraging modern AI tools, spreadsheets, and Web Stack.</li>
+          <li><strong>Complete Compliance:</strong> Total transparency in GST, TDS, Bookkeeping, and Operations.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- PAGE 5: CONTACT US -->
+  <main id="page-contact" class="page-content hidden py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold text-slate-900">Get In Touch</h1>
+        <p class="text-slate-600 mt-2">Have a project or operational requirement? Connect with us today.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 custom-shadow">
+        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Your Name</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-purple text-sm" placeholder="John Doe">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+            <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-purple text-sm" placeholder="john@example.com">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Service Requirement</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-purple text-sm">
+              <option>Operations & AI Workflows</option>
+              <option>Finance & Accounting</option>
+              <option>Digital Services & IT Recruitment</option>
+              <option>Anesthesia & Clinical Care</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+            <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-purple text-sm" placeholder="Tell us about your requirements..."></textarea>
+          </div>
+          <button type="submit" class="w-full py-3.5 bg-brand-purple text-white font-bold rounded-xl hover:bg-brand-lightPurple transition-colors">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL POPUPS FOR TEAM MEMBERS -->
+  <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 space-y-6 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl p-2">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-content">
+        <!-- Content inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-100 mt-20 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.jpeg" alt="Logo" class="h-8 w-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/100?text=Eternease';">
+        <span class="font-bold text-slate-900">ETERNEASE</span>
+      </div>
+      <p class="text-sm text-slate-500">© 2026 Eternease. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script for Navigation, Modals & Interactivity -->
+  <script>
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('page-' + pageId).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    const teamData = {
+      larson: {
+        name: "Larson Dabhi",
+        title: "Operational Head (Founder)",
+        img: "images/larson.jpeg",
+        details: `
+          <h4 class="font-bold text-slate-900 text-lg mb-3">Complete Competencies</h4>
+          <div class="space-y-3 text-sm text-slate-600">
+            <p>🎧 <strong>Audio & AI:</strong> Audio engineering, ElevenLabs / AI voice workflows, AI tool testing & evaluation, prompt engineering.</p>
+            <p>🎨 <strong>Design & Visual Content:</strong> Canva, poster & social media designs, image generation prompting, visual direction, basic branding.</p>
+            <p>📱 <strong>Content & Media:</strong> YouTube script development, short-form content, voice-over preparation, ElevenLabs scripts.</p>
+            <p>📊 <strong>Documentation & Operations:</strong> Project documentation, tracking sheets, Excel/spreadsheets, process management, HR/admin work.</p>
+            <p>✝️ <strong>Christian/Ministry Content:</strong> Bible study content, Catholic liturgy & feast days, devotional content, youth ministry communications.</p>
+            <p>🏥 <strong>Professional Anesthesia & Critical OT Skills:</strong> Workstation setup, airway management, emergency OT handling, parameter monitoring, drug handling, patient safety.</p>
+            <p>👩‍⚕️ <strong>Team Leadership:</strong> Setting up anesthesia departments, guiding junior staff, OT workflow management.</p>
+          </div>
+        `
+      },
+      ashish: {
+        name: "Ashish Bharthi",
+        title: "Finance & Accounts Head",
+        img: "images/ashish.jfif",
+        details: `
+          <h4 class="font-bold text-slate-900 text-lg mb-3">Complete Competencies</h4>
+          <div class="space-y-2 text-sm text-slate-600 grid md:grid-cols-2 gap-x-4">
+            <p>• Bookkeeping & Accounting</p>
+            <p>• Tally ERP / Tally Prime</p>
+            <p>• Zoho Books</p>
+            <p>• Purchase & Sales Invoicing</p>
+            <p>• Bank Reconciliation (BRS)</p>
+            <p>• GST Filing (GSTR-1, GSTR-3B)</p>
+            <p>• GSTR-2B Reconciliation</p>
+            <p>• TDS Calculation & Returns</p>
+            <p>• Form 26AS / AIS Matching</p>
+            <p>• Income Tax Return (ITR)</p>
+            <p>• Balance Sheet & P&L</p>
+            <p>• Advanced Excel (XLOOKUP, Pivot)</p>
+            <p>• Payroll & Fixed Assets</p>
+            <p>• Audit Data Preparation</p>
+          </div>
+        `
+      },
+      vihaan: {
+        name: "Vihaan Tiwari",
+        title: "Head of Digital Services & IT",
+        img: "images/vihaan.png",
+        details: `
+          <h4 class="font-bold text-slate-900 text-lg mb-3">Complete Competencies</h4>
+          <div class="space-y-2 text-sm text-slate-600 grid md:grid-cols-2 gap-x-4">
+            <p>• US IT Recruitment</p>
+            <p>• Professional Resume Design</p>
+            <p>• Business Website Development</p>
+            <p>• Portfolio Website Design</p>
+            <p>• UI/UX Design & Graphic Design</p>
+            <p>• IT Project Support & Docs</p>
+            <p>• Virtual Assistance & Email Management</p>
+            <p>• Technical & Content Writing</p>
+            <p>• AI Services (Content & Design)</p>
+            <p>• Google Review Generator</p>
+            <p>• Marketing & Advertising</p>
+            <p>• Administrative Support</p>
+          </div>
+        `
+      }
+    };
+
+    function openModal(memberKey) {
+      const member = teamData[memberKey];
+      const modalContent = document.getElementById('modal-content');
+      modalContent.innerHTML = `
+        <div class="flex items-center space-x-4 border-b border-slate-100 pb-4 mb-4">
+          <img src="${member.img}" class="w-16 h-16 rounded-full object-cover border-2 border-brand-purple" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900">${member.name}</h3>
+            <p class="text-brand-purple font-semibold text-sm">${member.title}</p>
+          </div>
+        </div>
+        ${member.details}
+      `;
+      document.getElementById('modal-backdrop').classList.remove('hidden');
+      document.body.classList.add('modal-active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-backdrop').classList.add('hidden');
+      document.body.classList.remove('modal-active');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Eternease! We will get back to you shortly.');
+    }
+  </script>
+</body>
+</html>
